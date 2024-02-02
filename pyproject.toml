@@ -1,10 +1,11 @@
 [tool.poetry]
-name = "indictranstokenizer"
+name = "IndicTransTokenizer"
 version = "0.1.0"
 description = "The goal of this repository is to provide a simple, modular, and extendable tokenizer for [IndicTrans2](https://github.com/AI4Bharat/IndicTrans2) and be compatible with the HuggingFace models released."
 authors = ["Varun Gumma <varun230999@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "IndicTransTokenizer"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
