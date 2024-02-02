@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "indictranstokenizer"
+version = "0.1.0"
+description = "The goal of this repository is to provide a simple, modular, and extendable tokenizer for [IndicTrans2](https://github.com/AI4Bharat/IndicTrans2) and be compatible with the HuggingFace models released."
+authors = ["Varun Gumma <varun230999@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.8"
+torch = "^2.2.0"
+sacremoses = "^0.1.1"
+sentencepiece = "^0.1.99"
+transformers = "^4.37.2"
+indic-nlp-library = {git = "https://github.com/orgpedia/indic_nlp_library.git"}
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
