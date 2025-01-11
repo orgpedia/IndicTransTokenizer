@@ -1,23 +1,31 @@
-[tool.poetry]
+[project]
 name = "IndicTransTokenizer"
 version = "0.1.0"
 description = "The goal of this repository is to provide a simple, modular, and extendable tokenizer for [IndicTrans2](https://github.com/AI4Bharat/IndicTrans2) and be compatible with the HuggingFace models released."
-authors = ["Varun Gumma <varun230999@gmail.com>"]
-license = "MIT"
+authors = [{ name = "Varun Gumma", email = "varun230999@gmail.com" }]
+requires-python = "~=3.10"
 readme = "README.md"
-packages = [{include = "IndicTransTokenizer"}]
+license = "MIT"
+dependencies = [
+    "torch>=2.2.0,<3",
+    "sacremoses>=0.1.1,<0.2",
+    "sentencepiece>=0.1.99,<0.2",
+    "transformers>=4.37.2,<5",
+    "indic-nlp-library",
+]
 
-[tool.poetry.dependencies]
-python = "^3.8"
-torch = "^2.2.0"
-sacremoses = "^0.1.1"
-sentencepiece = "^0.1.99"
-transformers = "^4.37.2"
-indic-nlp-library = {git = "https://github.com/orgpedia/indic_nlp_library.git"}
+[dependency-groups]
+dev = ["ruff>=0.2.0,<0.3"]
 
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.2.0"
+[tool.uv.sources]
+indic-nlp-library = { git = "https://github.com/orgpedia/indic_nlp_library.git" }
+
+[tool.hatch.build.targets.sdist]
+include = ["IndicTransTokenizer"]
+
+[tool.hatch.build.targets.wheel]
+include = ["IndicTransTokenizer"]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
